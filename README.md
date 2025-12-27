@@ -1,9 +1,10 @@
-# Visual Recognition and Scene Understanding using Computer Vision
+# Smart Traffic Scene Analysis using Computer Vision
 
 ## 📌 Project Overview
-This project implements an intelligent **Computer Vision–based system** that performs **Object Detection, Visual Recognition, and Scene Understanding** on images. The system uses a deep learning–based YOLO model to identify objects such as vehicles and people and then analyzes these detections to understand the overall scene context.
+This project implements a smart traffic analysis system using Computer Vision and Deep Learning. 
+It detects vehicles and pedestrians from traffic images and analyzes the detected objects to 
+understand traffic conditions such as congestion levels and scene context.
 
-The project demonstrates how low-level image processing and high-level semantic understanding can be combined to interpret real-world scenes automatically.
 
 ---
 
