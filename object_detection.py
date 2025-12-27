@@ -1,8 +1,12 @@
 import cv2
 from ultralytics import YOLO
+import os
 
-# Load YOLO model
-model = YOLO("yolov8n.pt")  # auto-downloads first time
+# Create outputs folder if not exists
+os.makedirs("outputs", exist_ok=True)
+
+# Load YOLO model (auto-downloads if not present)
+model = YOLO("yolov8n.pt")
 
 # Read image
 image = cv2.imread("dataset/images/test.jpg")
@@ -20,10 +24,19 @@ for r in results:
         label = f"{model.names[cls]} {conf:.2f}"
 
         cv2.rectangle(image, (x1, y1), (x2, y2), (0, 255, 0), 2)
-        cv2.putText(image, label, (x1, y1 - 10),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+        cv2.putText(
+            image,
+            label,
+            (x1, y1 - 10),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.5,
+            (0, 255, 0),
+            2
+        )
 
-# Show output
-cv2.imshow("Object Detection", image)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+# Save output instead of showing window
+output_path = "outputs/object_detection.png"
+cv2.imwrite(output_path, image)
+
+print(f"Object detection completed.")
+print(f"Result saved at: {output_path}")

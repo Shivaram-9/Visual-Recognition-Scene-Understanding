@@ -122,3 +122,11 @@ bus: 1
 
 Scene Type: Urban Traffic Road
 Conclusion: Heavy traffic detected
+
+## 🖼️ Output Screenshots
+
+### Object Detection Result
+![Object Detection](outputs/object_detection.png)
+
+### Scene Understanding Result
+![Scene Understanding](outputs/scene_understanding.png)

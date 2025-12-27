@@ -1,40 +1,42 @@
 from ultralytics import YOLO
 import cv2
+import os
+import numpy as np
 
-# Load model
+os.makedirs("outputs", exist_ok=True)
+
 model = YOLO("yolov8n.pt")
-
-# Load image
 image = cv2.imread("dataset/images/test.jpg")
-
-# Run detection
 results = model(image)
 
-# Count objects
 object_count = {}
-
 for r in results:
     for box in r.boxes:
-        cls = int(box.cls[0])
-        label = model.names[cls]
+        label = model.names[int(box.cls[0])]
         object_count[label] = object_count.get(label, 0) + 1
 
-# Scene understanding logic
 if object_count.get("car", 0) > 5:
     scene = "Urban Traffic Road"
     conclusion = "Heavy traffic detected"
-elif object_count.get("person", 0) > 5:
-    scene = "Crowded Public Area"
-    conclusion = "Crowd detected"
 else:
-    scene = "Normal Outdoor Scene"
+    scene = "Normal Scene"
     conclusion = "Normal activity"
 
-# Output
-print("\n--- SCENE UNDERSTANDING RESULT ---")
-print("Objects Detected:")
-for obj, count in object_count.items():
-    print(f"{obj}: {count}")
+text_lines = [
+    "Scene Understanding Result",
+    "",
+    *[f"{k}: {v}" for k, v in object_count.items()],
+    "",
+    f"Scene Type: {scene}",
+    f"Conclusion: {conclusion}"
+]
 
-print("\nScene Type:", scene)
-print("Conclusion:", conclusion)
+canvas = np.ones((400, 700, 3), dtype=np.uint8) * 255
+y = 40
+for line in text_lines:
+    cv2.putText(canvas, line, (20, y),
+                cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 0), 2)
+    y += 35
+
+cv2.imwrite("outputs/scene_understanding.png", canvas)
+print("Scene understanding result saved to outputs/scene_understanding.png")
