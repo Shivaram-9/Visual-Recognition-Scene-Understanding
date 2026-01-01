@@ -9,52 +9,88 @@ This system simulates a smart city traffic monitoring solution by combining real
 🎯 Project Objectives
 
 * To detect vehicles and pedestrians from traffic images and live video using deep learning techniques.
+
 * To analyze traffic density and classify traffic conditions as low, moderate, or heavy.
+
 * To track vehicles across frames and estimate their speed for traffic analytics.
+
 * To identify congestion zones, traffic anomalies, and generate automatic traffic reports for decision support.
 
 🧠 Key Concepts Used
 
 Computer Vision
+
 Object Detection
+
 Visual Recognition
+
 Scene Understanding
+
 Traffic Analytics
+
 Deep Learning
+
 Convolutional Neural Networks (CNN)
 
 🏗️ System Architecture
 The project follows a structured traffic-analysis pipeline:
+
 Input Source
+
 Traffic images
+
 Live webcam video
+
 Preprocessing
+
 Frame capture
+
 Resizing and visualization using OpenCV
+
 Object Detection
+
 YOLO (You Only Look Once) model detects vehicles and pedestrians
+
 Bounding boxes with class labels and confidence scores
+
 Traffic Analysis
+
 Vehicle counting
+
 Traffic density estimation
+
 Lane-wise congestion analysis
+
 Vehicle tracking and speed estimation
+
 Traffic Intelligence
+
 Traffic flow trend analysis
+
 Anomaly / incident detection
+
 Automated traffic report generation
 
 🚦 Features Implemented
 
 ✔ Real-time traffic detection
+
 ✔ Traffic density classification (Low / Moderate / Heavy)
+
 ✔ Vehicle counting and classification
+
 ✔ Data logging (CSV)
+
 ✔ Vehicle tracking with unique IDs
+
 ✔ Speed estimation
+
 ✔ Congestion zone (lane-wise) analysis
+
 ✔ Traffic flow trend analysis
+
 ✔ Traffic anomaly / incident detection
+
 ✔ Automatic traffic report generation
 
 📂 Project Structure
@@ -117,17 +153,21 @@ pip install -r requirements.txt
 🔹 Computer Vision Test
 python cv_test.py
 ✔ Displays original and grayscale images
+
 🔹 Object Detection
 python object_detection.py
 ✔ Detects vehicles and pedestrians
 ✔ Saves output image in outputs/
+
 🔹 Scene Understanding
 python scene_understanding.py
 ✔ Prints detected objects
 ✔ Identifies traffic scene and conclusion
+
 🔹 Real-Time Traffic Analysis
 python realtime_traffic_detection.py
 ✔ Live traffic detection using webcam
+
 🔹 Traffic Analytics & Reporting
 python traffic_report_generation.py
 ✔ Generates automatic traffic report
