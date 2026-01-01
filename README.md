@@ -58,6 +58,7 @@ Automated traffic report generation
 ✔ Automatic traffic report generation
 
 📂 Project Structure
+
 Advanced-Smart-Traffic-Scene-Analysis/
 │
 ├── dataset/
@@ -86,6 +87,7 @@ Advanced-Smart-Traffic-Scene-Analysis/
 ├── README.md
 └── .gitignore
 
+
 🛠️ Technologies Used
 | Category                | Tools              |
 | ----------------------- | ------------------ |
@@ -98,7 +100,7 @@ Advanced-Smart-Traffic-Scene-Analysis/
 
 📦 Installation & Setup
 1️⃣ Clone the Repository
-git clone https://github.com/your-username/Advanced-Smart-Traffic-Scene-Analysis.git
+git clone https://github.com/Shivaram-9/Advanced-Smart-Traffic-Scene-Analysis.git
 cd Advanced-Smart-Traffic-Scene-Analysis
 
 2️⃣ Create Virtual Environment
